@@ -12,9 +12,7 @@ book_genre = Table(
      Column('book_id', Integer, ForeignKey('books.id')),
      Column('genre_id', Integer, ForeignKey('genres.id')),
      extend_existing=True,
-
 )
-
 
 class Book(Base):
     __tablename__ = 'books'
@@ -26,10 +24,9 @@ class Book(Base):
     publication_date = Column(Date)
     isbn = Column(String, unique=True)
 
-    author = relationship("Author", back_populates="book")
+    author = relationship("Author", back_populates="books", foreign_keys=[author_id]) 
 
     genres = relationship("Genre", secondary=book_genre, back_populates="books")
-
 
     def __repr__(self):
         return f"Title: {self.title} , was published on {self.publication_date}"
@@ -41,11 +38,10 @@ class Author(Base):
     name = Column(String, nullable=False)
     bio = Column(String)
 
-    book = relationship('Book', back_populates='author')
-    book_id = Column(Integer, ForeignKey('books.id'))
+    books = relationship('Book', back_populates='author', foreign_keys=[Book.author_id])
 
     def __repr__(self):
-        return f"Written by: {self.name}, description{self.bio}"
+        return f"Written by: {self.name}, description {self.bio}"
 
 class Genre(Base):
     __tablename__ = 'genres'
@@ -56,7 +52,7 @@ class Genre(Base):
     books = relationship("Book", secondary=book_genre, back_populates="genres")
 
     def __repr__(self):
-        return f"Genre: {self.genre}, is having an id of {self.id}"
+        return f"Genre: {self.name}, is having an id of {self.id}"
 
 class UserProfile(Base):
     __tablename__ = 'user_profiles'
@@ -67,7 +63,6 @@ class UserProfile(Base):
 
     def __repr__(self):
         return f"username: {self.username}"
-
 
 if __name__ == "__main__":
     # Create a SQLite database engine
