@@ -74,7 +74,7 @@ if __name__ == "__main__":
     engine = create_engine('sqlite:///book_library.db')
 
     # Create database tables based on defined models
-    Base.metadata.create_all(engine)
+    # Base.metadata.create_all(engine)
 
     # Create a session to interact with the database
     Session = sessionmaker(bind=engine)
