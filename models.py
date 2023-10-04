@@ -4,6 +4,8 @@ from sqlalchemy import Column, Integer, String, Date, ForeignKey, create_engine,
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
+engine = create_engine('sqlite:///book_library.db')
+
 Base = declarative_base()
 
 book_genre = Table(
@@ -74,3 +76,4 @@ if __name__ == "__main__":
     # Create a session to interact with the database
     Session = sessionmaker(bind=engine)
     session = Session()
+
