@@ -6,7 +6,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 # Create an SQLite database engine
 engine = create_engine('sqlite:///book_library.db')
-
 # Create a base class for declarative models
 Base = declarative_base()
 
