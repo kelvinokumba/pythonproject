@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import click
 from datetime import datetime
 from sqlalchemy.orm import Session, sessionmaker
