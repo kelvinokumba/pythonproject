@@ -28,10 +28,7 @@ Getting Started
 To get started with the Book Library Management System, follow these steps:
 
 Installation
-Clone the repository to your local machine:
-
-
-git clone git@github.com:SirVicmas/phase-3-project.git
+Clone the repository to your local machine
 Install the required dependencies:
 
 
