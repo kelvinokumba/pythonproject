@@ -66,7 +66,7 @@ git push origin feature/your-feature-name
 Open a pull request on the main repository, explaining your changes and their purpose.
 
 #AUTHOR
-VICTOR MASIBO WAFULA
+kelvin okumba
 
 License
 This project is licensed under the MIT License.
