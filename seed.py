@@ -7,7 +7,6 @@ from models import Author, Book, Genre, Base
 if __name__ == "__main__":
     # Create a SQLite database engine
     engine = create_engine('sqlite:///book_library.db')
-
     # Create a session to interact with the database
     Session = sessionmaker(bind=engine)
     session = Session()
